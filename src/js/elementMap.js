@@ -46,7 +46,7 @@ var fieldList = [
     fieldType:1
   },
   { label:"地址",
-    errMsg:"你家地址咧",
+    errMsg:"你家地址咧???",
     col:6,
     fieldType:3,
     option:[
