@@ -4,6 +4,7 @@ const formItemList = {
   elInput: defineAsyncComponent(() => import('@/components/YellowInput.vue')),
   elButton: defineAsyncComponent(() => import('@/components/RedButton.vue')),
   elSelecter: defineAsyncComponent(() => import('@/components/Selecter.vue')),
+  elDatePicker: defineAsyncComponent(() => import('@/components/DateField.vue')),
 
 }
 
@@ -14,6 +15,8 @@ const formItemListKey = {
   1: formItemList.elInput, 
   2: formItemList.elButton, 
   3: formItemList.elSelecter,
+  4: formItemList.elDatePicker,
+
 }
 
 var fieldList = [
@@ -63,6 +66,11 @@ var fieldList = [
         label: 'Option3',
       },
     ]
+  },
+  { label:"生日",
+    errMsg:"",
+    col:6,
+    fieldType:4,
   },
 ]
 

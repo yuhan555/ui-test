@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App" />
     <RedButton />
-    <GreenButton />
+    <GreenButton /> -->
     <el-row :gutter="20">
       <el-col :span="ele.col" v-for="(ele,index) in data.fieldList" :key="index">
         <component :is="data.formItemListKey[ele.fieldType]" :data="ele"></component>
@@ -20,7 +20,7 @@
 // import YellowInput from "@/components/YellowInput.vue";
 import data from '@/js/elementMap.js';
 
-console.log(data.fieldList)
+//console.log(data.fieldList)
 
 
 export default {

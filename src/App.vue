@@ -3,8 +3,31 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div>
-  <router-view/>
+  <el-config-provider :locale="locale">
+    <router-view/>
+  </el-config-provider>
 </template>
+
+<script>
+import { ElConfigProvider } from 'element-plus'
+import zhTw from'element-plus/es/locale/lang/zh-tw'
+
+export default {
+    components: {
+      [ElConfigProvider.name]: ElConfigProvider
+    },
+    setup() {
+      
+      // 切换为中文
+      let locale = zhTw
+      return {
+        locale
+      }
+      
+    }
+  }
+
+</script>
 
 <style>
 #app {
