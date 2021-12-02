@@ -2,16 +2,18 @@
   <div class="dateField">
     <div>{{ data.label }}</div>
 
-    <input type="text" name="date" id="startUpDate" readonly />
-    <p>{{ startUpDate }}</p>
+    <input type="text" name="date" class="startUpDate" v-model="fieldVal" />
+    <p>{{ fieldVal }}</p>
 
     <div class="errMsg">{{ data.errMsg }}</div>
   </div>
 </template>
 
+
 <script>
-import { defineComponent } from "vue";
+import { ref,defineComponent , onMounted} from "vue";
 import "@/js/bootstrap-datepicker-tw-master/bootstrap-datepicker.js";
+ 
 export default defineComponent({
   name: "DatePicker",
   props: {
@@ -27,22 +29,26 @@ export default defineComponent({
       },
     },
   },
-  data() {
-    return {
-      startUpDate: null,
-    };
-  },
-  mounted() {
-    $("#startUpDate")
-      .datepicker({
-        format: "twy/mm/dd",
-        twPop:true,
-        orientation: "top",
-      })
-      .on("changeDate", (v) => {
-        this.startUpDate = v.format();
-      });
-  },
+  setup(props){
+    var fieldVal = ref("");
+    onMounted(() => {
+       $(".startUpDate")
+          .datepicker({
+            format: "twy/mm/dd",
+            twPop:true,
+            orientation: "top",
+          })
+          // .on("changeDate", () => {
+          //   fieldVal.value = $(".startUpDate").val();
+          // });
+    });
+
+    return{
+      props,
+      fieldVal,
+    }
+  }
+
 });
 </script>
 

@@ -67,7 +67,27 @@ var fieldList = [
       },
     ]
   },
+  { label:"國家",
+    errMsg:"",
+    col:6,
+    fieldType:3,
+    option:[
+      {
+        value: 'TW',
+        label: '台灣',
+      },
+      {
+        value: 'JP',
+        label: '日本',
+      },
+    ]
+  },
   { label:"生日",
+    errMsg:"",
+    col:6,
+    fieldType:4,
+  },
+  { label:"起保日",
     errMsg:"",
     col:6,
     fieldType:4,
