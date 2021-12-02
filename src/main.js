@@ -7,7 +7,7 @@ import installElementPlus from './plugins/element'
 import jquery from 'jquery'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '@/style/bootstrap-datetimepicker.min.css'
+import "@/style/bootstrap-datepicker3.css";
 
 window.jQuery = window.$ = jquery;
 

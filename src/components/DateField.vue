@@ -3,8 +3,7 @@
     <div>{{ data.label }}</div>
 
     <input type="text" name="date" id="startUpDate" readonly />
-
-
+    <p>{{ startUpDate }}</p>
 
     <div class="errMsg">{{ data.errMsg }}</div>
   </div>
@@ -12,9 +11,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import "@/js/bootstrap-datepicker/bootstrap-datetimepicker.min.js";
-import "@/js/bootstrap-datepicker/bootstrap-datetimepicker.zh-TW.js";
-
+import "@/js/bootstrap-datepicker-tw-master/bootstrap-datepicker.js";
 export default defineComponent({
   name: "DatePicker",
   props: {
@@ -37,23 +34,14 @@ export default defineComponent({
   },
   mounted() {
     $("#startUpDate")
-      .datetimepicker({
-        format: "RR/mm/dd",
-        formatType: "roc",
-        language: "zh-TW",
-        startView: 2,
-        minView: 2,
-        autoclose: true,
-        minuteStep: 10,
-        orientation: "bottom-left",
-        container: "html", //讓datetimepicker可以將視窗對到正確位置
+      .datepicker({
+        format: "twy/mm/dd",
+        orientation: "top",
       })
-      .on("changeDate", () => {
-        this.startUpDate = $("#startUpDate").val();
+      .on("changeDate", (v) => {
+        this.startUpDate = v.format();
       });
-
   },
- 
 });
 </script>
 
