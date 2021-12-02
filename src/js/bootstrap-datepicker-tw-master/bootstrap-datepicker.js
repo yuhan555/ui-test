@@ -735,20 +735,20 @@
         {
             if (month != null) {
                 if (this.o.language === "zh-TW")
-                    return (year - 1911) + dates[this.o.language].year + dates[this.o.language].months[month];
+                    return (this.o.twPop ? year - 1911 : year) + dates[this.o.language].year + dates[this.o.language].months[month];
                 else
                     return dates[this.o.language].months[month] + ' ' + year;
             }
             else {
                 if (this.o.language === "zh-TW")
-                    return (year - 1911) + dates[this.o.language].year;
+                    return (this.o.twPop ? year - 1911 : year) + dates[this.o.language].year;
                 else
                     return year;
             }
         },
         formatYear: function (year) {
             if (this.o.language === "zh-TW")
-                return year - 1911;
+                return this.o.twPop ? year - 1911 : year;
             else
                 return year;
         },
@@ -985,7 +985,7 @@
                             else {
                                 day = 1;
                                 month = 0;
-                                year = parseInt(target.text(), 10) || 0;
+                                year = this.o.twPop ? parseInt(target.text(), 10) || 0 : parseInt(target.text(), 10) - 1911 || 0;
                                 if (this.o.language === "zh-TW") {
                                     year += 1911;
                                 }
@@ -1418,6 +1418,7 @@
         endDate: Infinity,
         forceParse: true,
         format: 'yyyy/mm/dd',
+        twPop: false,
         keyboardNavigation: true,
         //language: 'en',
         language: 'zh-TW',
@@ -1640,7 +1641,8 @@
             };
             val.dd = (val.d < 10 ? '0' : '') + val.d;
             val.mm = (val.m < 10 ? '0' : '') + val.m;
-            val.twy = (val.twy < 100 ? '0' : '') + val.twy;
+            val.yyyy = val.yyyy.toString().padStart(4,'0');
+            val.twy = val.twy.toString().padStart(3,'0');
             date = [];
             var seps = $.extend([], format.separators);
             for (var i=0, cnt = format.parts.length; i <= cnt; i++){

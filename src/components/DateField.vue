@@ -36,6 +36,7 @@ export default defineComponent({
     $("#startUpDate")
       .datepicker({
         format: "twy/mm/dd",
+        twPop:true,
         orientation: "top",
       })
       .on("changeDate", (v) => {
