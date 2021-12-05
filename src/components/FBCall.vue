@@ -1,7 +1,10 @@
 <template>
-  <div class="FBInput required error">
+  <div class="FBCall">
     <div class="label">{{ label }}</div>
-    <el-input v-model="text" placeholder="" :clearable=false />
+    <div style="display: flex">
+      <el-input v-model="text1" placeholder="" :clearable="false" />
+      <el-input v-model="text2" placeholder="" :clearable="false" />
+    </div>
     <div class="error-info" v-if="hasErr">
       <img class="icon-error" src="../images/icon-error.svg" />
       {{ errMsg }}
@@ -12,15 +15,16 @@
 <script>
 import { defineComponent, ref } from "vue";
 export default defineComponent({
-  name: "FBInput",
+  name: "FBCall",
   props: {
     label: String,
     errMsg: String,
   },
   setup() {
     return {
-      text: ref(""),
-      hasErr: true,
+      value1: ref(""),value2: ref(""),
+      text1: ref(""),text2: ref(""),
+      hasErr: false,
     };
   },
 });
@@ -34,8 +38,18 @@ export default defineComponent({
   }
 }
 
-.FBInput {
+.FBCall {
   text-align: left;
   margin-top: 24px;
- }
+  
+  .el-input:first-of-type {
+    width: 25%;
+    margin-right: 8px;
+
+    .el-input__inner {
+      padding: 0 10px!important;
+    }
+  }
+}
+
 </style>

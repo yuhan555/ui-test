@@ -1,0 +1,113 @@
+//手機I13  6.1吋為瀏覽最佳的方式進行頁面布局
+@mixin mobile {
+    @media (max-width: 390px) {
+      @content;
+    }
+  }
+  
+.label {
+    color: #727272;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 500;
+
+    @include mobile {
+      font-size: 0.875rem;
+    }
+  }
+
+.startUpDate,
+.el-input__inner {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    color: #535353;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 0.5rem;
+    padding: 0 20px !important;
+    font-size: 1.125rem;
+    margin-top: 3px;
+
+    @include mobile {
+        font-size: 1rem;
+    }
+}
+
+.startUpDate {
+    outline: #409eff;
+
+    .active,
+    .focus,
+    .focus-visible &:active,
+    &:focus,
+    &:focus-visible {
+      border: 1px solid #409eff;
+    }
+
+    &::placeholder {
+        color: #cccccc;
+      }
+  }
+
+// 日期群組 & 日期+時間群組用
+.GroupContent {
+width: 100%;
+display: flex;
+text-align: center;
+line-height: 50px;
+}  
+
+//日曆icon
+.icon-calendar {
+    position: absolute;
+    top: 18px;
+    right: 13px;
+    pointer-events: none;
+}
+
+//經辦表單內的客戶欄位
+.customer {
+    .startUpDate, 
+    .el-input__inner {
+        background-color: #fff9ef;
+    }
+    
+    .el-icon-arrow-up:before {
+        font-size: 1rem;
+        color: #c77a00;
+        font-weight: 600;
+    }
+}
+
+//必填欄位
+.required {
+    .label:before {
+      content: "*";
+      color: #ff0000;
+      font-size: 1.2rem;
+    }
+  }
+
+//檢核錯誤
+.error {
+    .startUpDate, 
+    .el-input__inner {
+        background-color: #fff7f6;
+        border: 1px solid #ff0000;
+    }
+
+  .error-info {
+    color: #ff0000;
+    font-size: 0.75rem;
+    font-weight: 500;
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .icon-error {
+    position: absolute;
+    top: 3px;
+    left: 2px;
+  }
+}
