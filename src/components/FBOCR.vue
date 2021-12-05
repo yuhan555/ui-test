@@ -46,6 +46,10 @@ export default defineComponent({
   text-align: left;
   margin-top: 24px;
 
+  .el-input__inner {
+    width: calc(100% - 5px);
+  }
+
   // 按鈕上文字
   .el-button > span > span {
     text-align: center;
