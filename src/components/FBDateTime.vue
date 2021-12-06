@@ -3,7 +3,7 @@
     <div class="label">{{ label }}</div>
     <div class="GroupContent">
       <div style="width: calc(50% - 12px); position: relative">
-        <input type="text" name="date" class="startUpDate" placeholder="請選擇日期" style="width: 100%"/>
+        <input type="text" name="date" class="startDate" placeholder="請選擇日期" style="width: 100%"/>
         <img class="icon-calendar" src="../images/icon-calendar.svg" />
         <p>{{ fieldVal }}</p>
       </div>
@@ -43,7 +43,7 @@ export default defineComponent({
   setup(props) {
     var fieldVal = ref("");
     onMounted(() => {
-      $(".startUpDate").datepicker({
+      $(".startDate").datepicker({
         format: "twy/mm/dd",
         twPop: true,
         orientation: "top",

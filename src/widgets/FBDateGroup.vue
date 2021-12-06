@@ -1,17 +1,15 @@
 <template>
   <div class="FBDateGroup">
-    <div class="label">{{ label }}</div>
+    <div class="label">{{ data.label }}</div>
     <div class="GroupContent">
       <div style="width: calc(50% - 12px); position: relative">
-        <input type="text" name="dateS" class="startDate" placeholder="請選擇日期(起)" style="width: 100%" />
+        <input type="text" name="dateS" class="startDate" placeholder="請選擇日期(起)" style="width: 100%" v-model.lazy="startText" :id="data.startId"/>
         <img class="icon-calendar" src="../images/icon-calendar.svg" />
-        <p>{{ fieldVal }}</p>
       </div>
       <div style="width: 24px">-</div>
       <div style="width: calc(50% - 12px); position: relative">
-        <input type="text" name="dateE" class="startDate" placeholder="請選擇日期(迄)" style="width: 100%" />
+        <input type="text" name="dateE" class="endDate" placeholder="請選擇日期(迄)" style="width: 100%" v-model.lazy="endText" :id="data.endId"/>
         <img class="icon-calendar" src="../images/icon-calendar.svg" />
-        <p>{{ fieldVal }}</p>
       </div>
     </div>
     <div class="error-info" v-if="hasErr">
@@ -28,35 +26,34 @@ import "@/js/bootstrap-datepicker-tw-master/bootstrap-datepicker.js";
 export default defineComponent({
   name: "FBDateGroup",
   props: {
-    label: String,
-    errMsg: String,
-    data: {
-      type: Object,
-      default() {
-        return {
-          col: 12,
-          fieldType: null,
-        };
-      },
-    },
+    data:Object
   },
 
   setup(props) {
-    var fieldVal = ref("");
+    const startText = ref("");
+    const endText = ref("");
     onMounted(() => {
-      $(".startDate").datepicker({
+      $('#'+props.data.startId).datepicker({
         format: "twy/mm/dd",
         twPop: true,
         orientation: "top",
+      }).on("changeDate", () => {
+        startText.value = document.getElementById(props.data.startId).value;
       });
-      // .on("changeDate", () => {
-      //   fieldVal.value = $(".startUpDate").val();
-      // });
+
+      $('#'+props.data.endId).datepicker({
+        format: "twy/mm/dd",
+        twPop: true,
+        orientation: "top",
+      }).on("changeDate", () => {
+        endText.value = document.getElementById(props.data.endId).value;
+      });
+      
     });
 
     return {
-      props,
-      fieldVal,
+      startText,
+      endText,
       hasErr: false,
     };
   },

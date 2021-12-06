@@ -1,10 +1,12 @@
 import { defineAsyncComponent } from 'vue'
 
 const formItemList = {
-  elInput: defineAsyncComponent(() => import('@/components/YellowInput.vue')),
-  elButton: defineAsyncComponent(() => import('@/components/RedButton.vue')),
-  elSelecter: defineAsyncComponent(() => import('@/components/Selecter.vue')),
-  elDatePicker: defineAsyncComponent(() => import('@/components/DateField.vue')),
+  elInput: defineAsyncComponent(() => import('@/widgets/FBInput.vue')),
+  elSelect: defineAsyncComponent(() => import('@/widgets/FBSelect.vue')),
+  elDate: defineAsyncComponent(() => import('@/widgets/FBDate.vue')),
+  elDateGroup: defineAsyncComponent(() => import('@/widgets/FBDateGroup.vue')),
+  elDateTime: defineAsyncComponent(() => import('@/widgets/FBDateTime.vue')),
+  
 
 }
 
@@ -13,45 +15,37 @@ const formItemList = {
  */
 const formItemListKey = {
   1: formItemList.elInput, 
-  2: formItemList.elButton, 
-  3: formItemList.elSelecter,
-  4: formItemList.elDatePicker,
+  2: formItemList.elSelect, 
+  3: formItemList.elDate, 
+  4: formItemList.elDateGroup, 
+  5: formItemList.elDateTime, 
+
 
 }
 
 var fieldList = [
   { label:"姓名",
+    id:"aa",
     errMsg:"這是必填",
     col:12,
     fieldType:1
   },
-  { label:"生日",
-    errMsg:"這是必填!!!!!",
+  { label:"手機",
+    id:"bb",
+    errMsg:"請填寫手機",
     col:12,
     fieldType:1
   },
-  { label:"電話",
-    col:16,
-    fieldType:1
-  },
-  { label:"這是按鈕",
-    col:8,
-    fieldType:2
-  },
-  { label:"手機",
-    errMsg:"請填寫",
-    col:10,
-    fieldType:1
-  },
-  { label:"Email",
-    errMsg:"",
-    col:14,
+  { label:"標題二",
+    id:"cc",
+    col:24,
     fieldType:1
   },
   { label:"地址",
+    id:"dd",
     errMsg:"你家地址咧???",
     col:6,
-    fieldType:3,
+    fieldType:2,
     option:[
       {
         value: 'Option1',
@@ -68,9 +62,10 @@ var fieldList = [
     ]
   },
   { label:"國家",
+    id:"ee",
     errMsg:"",
     col:6,
-    fieldType:3,
+    fieldType:2,
     option:[
       {
         value: 'TW',
@@ -83,15 +78,43 @@ var fieldList = [
     ]
   },
   { label:"生日",
+    id:"ff",
     errMsg:"",
     col:6,
-    fieldType:4,
+    fieldType:3,
   },
   { label:"起保日",
+    id:"gg",
     errMsg:"",
     col:6,
+    fieldType:3,
+  },
+  { label:"旅遊期間",
+    id:"hh",
+    errMsg:"",
+    startId:"hh",
+    endId:"ii",
+    col:12,
     fieldType:4,
   },
+  { label:"有效期間",
+    id:"",
+    errMsg:"",
+    dateId:"jj",
+    timeId:"kk",
+    col:12,
+    fieldType:5,
+  },
+  // { label:"這是按鈕",
+  //   col:8,
+  //   fieldType:2
+  // },
+  // { label:"Email",
+  //   errMsg:"",
+  //   col:14,
+  //   fieldType:1
+  // },
+ 
 ]
 
 export default {
