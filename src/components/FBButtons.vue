@@ -143,7 +143,7 @@ export default defineComponent({
     &:hover,
     &:active {
       color: #ffffff;
-      background-color: #188ec9;
+      background-color: #1f8dc4;
       border-color: #007dbc;
     }
   }
@@ -153,8 +153,8 @@ export default defineComponent({
 
     &:hover {
       color: #ffffff;
-      background-color: #188ec9;
-      border-color: #188ec9;
+      background-color: #1f8dc4;
+      border-color: #007dbc;
     }
   }
 
