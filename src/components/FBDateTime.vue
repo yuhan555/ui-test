@@ -59,6 +59,14 @@ export default defineComponent({
       hasErr: false,
     };
   },
+
+// 時間選擇
+data() {
+    return {
+      value: "",
+    }
+  },
+
 });
 </script>
 
