@@ -1,10 +1,10 @@
 <template>
   <div class="FBOCR">
-    <div class="label">{{ label }}</div>
+    <div class="label">{{ data.label }}</div>
     <div style="display: flex; align-item: flex-end">
       <el-input v-model="text" placeholder="" :clearable="false" />
 
-      <el-button class="function">
+      <el-button class="function" @click="doSomething()">
         <span>身份辨識</span>
         <img src="../images/icon-camera.svg" />
       </el-button>
@@ -12,7 +12,7 @@
 
     <div class="error-info" v-if="hasErr">
       <img class="icon-error" src="../images/icon-error.svg" />
-      {{ errMsg }}
+      {{ data.errMsg }}
     </div>
   </div>
 </template>
@@ -22,12 +22,17 @@ import { defineComponent, ref } from "vue";
 export default defineComponent({
   name: "FBOCR",
   props: {
-    label: String,
-    errMsg: String,
+    data:Object
   },
   setup() {
+    function doSomething(){
+      window.alert("預計要做的事");
+    }
+
+
     return {
       text: ref(""),
+      doSomething,
       hasErr: false,
     };
   },

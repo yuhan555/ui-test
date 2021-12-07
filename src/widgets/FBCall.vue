@@ -1,13 +1,13 @@
 <template>
   <div class="FBCall">
-    <div class="label">{{ label }}</div>
+    <div class="label">{{ data.label }}</div>
     <div style="display: flex">
-      <el-input v-model="text1" placeholder="" :clearable="false" />
-      <el-input v-model="text2" placeholder="" :clearable="false" />
+      <el-input v-model="tell" placeholder="" :clearable="false" />
+      <el-input v-model="ext" placeholder="" :clearable="false" />
     </div>
     <div class="error-info" v-if="hasErr">
       <img class="icon-error" src="../images/icon-error.svg" />
-      {{ errMsg }}
+      {{ data.errMsg }}
     </div>
   </div>
 </template>
@@ -17,13 +17,12 @@ import { defineComponent, ref } from "vue";
 export default defineComponent({
   name: "FBCall",
   props: {
-    label: String,
-    errMsg: String,
+    data:Object
   },
   setup() {
     return {
-      value1: ref(""),value2: ref(""),
-      text1: ref(""),text2: ref(""),
+      tell: ref(""),
+      ext: ref(""),
       hasErr: false,
     };
   },

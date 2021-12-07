@@ -1,17 +1,14 @@
 <template>
   <div class="FBRadioButton">
-    <div class="label">{{ label }}</div>
+    <div class="label">{{ data.label }}</div>
     <div class="el-radio-group">
-      <el-radio-group v-model="radio1">
-        <el-radio-button label="New York"></el-radio-button>
-        <el-radio-button label="Washington"></el-radio-button>
-        <el-radio-button label="Los Angeles"></el-radio-button>
-        <el-radio-button label="Chicago"></el-radio-button>
+      <el-radio-group v-model="radioVal">
+        <el-radio-button v-for="item in data.option" :key="item.value" :label="item.value">{{item.label}}</el-radio-button>
       </el-radio-group>
     </div>
     <div class="error-info" v-if="hasErr">
       <img class="icon-error" src="../images/icon-error.svg" />
-      {{ errMsg }}
+      {{ data.errMsg }}
     </div>
   </div>
 </template>
@@ -21,15 +18,11 @@ import { defineComponent, ref } from "vue";
 export default defineComponent({
   name: "FBRadioButton",
   props: {
-    label: String,
-    errMsg: String,
+    data:Object
   },
   setup() {
     return {
-      radio1: ref("選項一"),
-      radio2: ref("選項二"),
-      radio3: ref("選項三"),
-      radio4: ref("選項四"),
+      radioVal: ref(""),
       hasErr: false,
     };
   },

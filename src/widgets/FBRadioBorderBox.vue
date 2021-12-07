@@ -1,8 +1,8 @@
 <template>
-  <div class="FBRadioBox">
+  <div class="FBRadioBorderBox">
     <div class="label">{{ data.label }}</div>
     <div class="el-radio-group">
-      <el-radio v-for="item in data.option" :key="item.value" v-model="radioVal" :label="item.value">{{item.label}}</el-radio>
+      <el-radio v-for="item in data.option" :key="item.value" v-model="radioVal" :label="item.value" border>{{item.label}}</el-radio>
     </div>
     <div class="error-info" v-if="hasErr">
       <img class="icon-error" src="../images/icon-error.svg" />
@@ -14,7 +14,7 @@
 <script>
 import { defineComponent, ref } from "vue";
 export default defineComponent({
-  name: "FBRadioBox",
+  name: "FBRadioBorderBox",
   props: {
     data:Object
   },
@@ -35,7 +35,7 @@ export default defineComponent({
   }
 }
 
-.FBRadioBox {
+.FBRadioBorderBox {
   text-align: left;
   margin-top: 24px;
 
@@ -44,22 +44,38 @@ export default defineComponent({
     display: block;
   }
 
-  // 基本款樣式
-  .el-radio {
-    margin: 0 0 8px 21px;
+  // Border款樣式
+  .el-radio.is-bordered {
+    width: calc(50% - 12px);
+    margin: 0 24px 24px 0;
+    padding: 12px 20px 10px 20px;
+    border-radius: 0.5rem;
+    height: 45px;
+    background-color: #ffffff;
+    border-color: #cccccc;
 
     @include mobile {
-      display: block;
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 8px;
     }
 
-    &:first-child {
-      margin-top: 8px;
+    //一列2欄排列時偶數個mr=0
+    &:nth-child(2n) {
+      margin-right: 0;
     }
 
-    &:last-child {
-      @include mobile {
-        margin-bottom: 0;
+    //最後一與倒數第二個選項為0
+    @include mobile {
+      &:last-child,
+      &:nth-last-child(2) {
+        margin-bottom: 0px;
       }
+    }
+
+    //取消預設相連radio右margin10px
+    + .el-radio.is-bordered {
+      margin-left: 0px;
     }
   }
 

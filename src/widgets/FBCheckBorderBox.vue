@@ -1,9 +1,9 @@
 <template>
-  <div class="FBCheckBox">
+  <div class="FBCheckBorderBox">
     <div class="label">{{ data.label }}</div>
     <div class="el-checkbox-group">
       <el-checkbox-group v-model="checkList">
-      <el-checkbox v-for="item in data.option" :key="item.value" :label="item.value">{{item.label}}</el-checkbox>
+        <el-checkbox v-for="item in data.option" :key="item.value" :label="item.value" border>{{item.label}}</el-checkbox>
       </el-checkbox-group>
     </div>
     <div class="error-info" v-if="hasErr">
@@ -16,13 +16,13 @@
 <script>
 import { defineComponent, ref } from "vue";
 export default defineComponent({
-  name: "FBCheckBox",
+  name: "FBCheckBorderBox",
   props: {
     data:Object
   },
   setup() {
     return {
-      checkList: ref([]),
+      checkList:ref([]),
       hasErr: false,
     };
   },
@@ -36,7 +36,7 @@ export default defineComponent({
   }
 }
 
-.FBCheckBox {
+.FBCheckBorderBox {
   text-align: left;
   margin-top: 24px;
 
@@ -44,22 +44,38 @@ export default defineComponent({
     margin-top: 3px;
   }
 
-  // 基本款樣式
-  .el-checkbox {
-    margin: 0 0 8px 21px;
+  // Border款樣式
+  .el-checkbox.is-bordered {
+    width: calc(50% - 12px);
+    margin: 0 24px 24px 0;
+    padding: 12px 20px 10px 20px;
+    border-radius: 0.5rem;
+    height: 45px;
+    background-color: #ffffff;
+    border-color: #cccccc;
 
     @include mobile {
-      display: block;
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 8px;
     }
 
-    &:first-child {
-      margin-top: 8px;
+    //一列2欄排列時偶數個mr=0
+    &:nth-child(2n) {
+      margin-right: 0;
     }
 
-    &:last-child {
-      @include mobile {
-        margin-bottom: 0;
+    //最後一與倒數第二個選項為0
+    @include mobile {
+      &:last-child,
+      &:nth-last-child(2) {
+        margin-bottom: 0px;
       }
+    }
+
+    //取消預設相連checkbox右margin10px
+    + .el-checkbox.is-bordered {
+      margin-left: 0px;
     }
   }
 

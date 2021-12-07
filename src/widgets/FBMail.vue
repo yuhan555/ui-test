@@ -1,16 +1,16 @@
 <template>
   <div class="FBMail">
-    <div class="label">{{ label }}</div>
+    <div class="label">{{ data.label }}</div>
     <el-input v-model="text" placeholder="" :clearable="false" />
     <div class="mailGroup">
-      <el-button><span>@gmail.com</span></el-button>
-      <el-button><span>@outlook.com</span></el-button>
-      <el-button><span>@yahoo.com</span></el-button>
-      <el-button><span>@hotmail.com</span></el-button>
+      <el-button @click="setMailAdd('@gmail.com')"><span>@gmail.com</span></el-button>
+      <el-button @click="setMailAdd('@outlook.com')"><span>@outlook.com</span></el-button>
+      <el-button @click="setMailAdd('@yahoo.com')"><span>@yahoo.com</span></el-button>
+      <el-button @click="setMailAdd('@hotmail.com')"><span>@hotmail.com</span></el-button>
     </div>
     <div class="error-info" v-if="hasErr">
       <img class="icon-error" src="../images/icon-error.svg" />
-      {{ errMsg }}
+      {{ data.errMsg }}
     </div>
   </div>
 </template>
@@ -20,12 +20,17 @@ import { defineComponent, ref } from "vue";
 export default defineComponent({
   name: "FBInput",
   props: {
-    label: String,
-    errMsg: String,
+    data:Object
   },
   setup() {
+    const text = ref("");
+    function setMailAdd(add){
+      text.value = text.value.split('@')[0] + add;
+    }
+
     return {
-      text: ref(""),
+      text,
+      setMailAdd,
       hasErr: false,
     };
   },
