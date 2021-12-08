@@ -54,7 +54,6 @@ export default defineComponent({
 });
 </script>
 
-
 <style lang="scss">
 @mixin mobile {
   @media (max-width: 390px) {
@@ -74,16 +73,6 @@ export default defineComponent({
   .el-input__suffix {
     right: 10px;
     top: 5px;
-  }
-
-  .el-icon-arrow-up:before {
-    font-size: 1rem;
-    color: #01b6ad;
-    font-weight: 600;
-  }
-  // disabled 下拉icon
-  .el-select .el-input.is-disabled .el-icon-arrow-up:before {
-    color: #cccccc;
   }
 }
 

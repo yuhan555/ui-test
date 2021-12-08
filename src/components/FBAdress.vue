@@ -128,15 +128,6 @@ export default defineComponent({
     top: 5px;
   }
 
-  .el-icon-arrow-up:before {
-    font-size: 1rem;
-    color: #01b6ad;
-    font-weight: 600;
-  }
-  // disabled 下拉icon
-  .el-select .el-input.is-disabled .el-icon-arrow-up:before {
-    color: #cccccc;
-  }
 }
 
 </style>

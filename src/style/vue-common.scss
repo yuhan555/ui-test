@@ -50,7 +50,7 @@
       }
   }
 
-// 日期群組 & 日期+時間群組用
+// 日期群組 & 日期+時間群組用 & 車牌辨識
 .GroupContent {
 width: 100%;
 display: flex;
@@ -66,14 +66,25 @@ line-height: 50px;
     pointer-events: none;
 }
 
+// 下拉icon
+.el-icon-arrow-up:before {
+  font-size: 1rem;
+  color: #01b6ad;
+  font-weight: 600;
+}
+
+.el-select .el-input.is-disabled .el-icon-arrow-up:before {
+  color: #cccccc;
+}
+
 //經辦表單內的客戶欄位
 .customer {
-    .startDate, .endDate
+    .startDate, .endDate,
     .el-input__inner {
         background-color: #fff9ef;
     }
     
-    .el-icon-arrow-up:before {
+   .el-icon-arrow-up:before {
         font-size: 1rem;
         color: #c77a00;
         font-weight: 600;
