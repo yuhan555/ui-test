@@ -2,7 +2,7 @@
   <div class="FBCar">
     <div class="label">{{ label }}</div>
     <div style="display: flex;">
-      <div class="GroupContent" style="padding-right: 10px">
+      <div class="GroupContent" style="padding-right: 5px">
         <div style="width: calc(50% - 12px)"><el-input v-model="text" placeholder="" :clearable="false" /></div>
         <div style="width: 24px">-</div>
         <div style="width: calc(50% - 12px)"><el-input v-model="text" placeholder="" :clearable="false" /></div>
@@ -48,10 +48,6 @@ export default defineComponent({
 .FBCar {
   text-align: left;
   margin-top: 24px;
-
-  // .el-input__inner {
-  //   width: calc(100% - 5px);
-  // }
 
   // 按鈕上文字
   .el-button > span > span {
