@@ -1,27 +1,6 @@
 <template>
   <div class="FBButtons">
-    <div class="label">{{ label }}</div>
-    <el-row>
-      <el-button type="base">base</el-button>
-      <el-button type="base" round>base</el-button>
-      <el-button type="base" plain>base</el-button>
-      <el-button type="base" plain round>base</el-button>
-      <el-button type="base" round disabled>base</el-button>
-    </el-row>
-
-    <el-row>
-      <el-button type="main">main</el-button>
-      <el-button type="main" round>main</el-button>
-      <el-button type="main" plain>main</el-button>
-      <el-button type="main" plain round>main</el-button>
-      <el-button type="main" round disabled>main</el-button>
-
-      <el-button type="function">function</el-button>
-      <el-button type="function" round>function</el-button>
-      <el-button type="function" plain>function</el-button>
-      <el-button type="function" plain round>function</el-button>
-      <el-button type="function" round disabled>function</el-button>
-    </el-row>
+    <el-button :type="data.buttonType" :plain="!!!data.buttonFill" :round="data.buttonRound">{{ data.label }}</el-button>
   </div>
 </template>
 
@@ -30,7 +9,7 @@ import { defineComponent, ref } from "vue";
 export default defineComponent({
   name: "FBButtons",
   props: {
-    label: String,
+    data:Object
   },
   setup() {
     return {

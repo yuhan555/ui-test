@@ -1,11 +1,11 @@
 <template>
   <div class="FBAdress">
-    <div class="label">{{ label }}</div>
+    <div class="label">{{ data.label }}</div>
     <div id="postcode-group" style="display: flex">
       <el-input v-model="text1" placeholder="" :clearable="false" />
       <el-select v-model="value1" placeholder="請選擇">
         <el-option
-          v-for="item in options1"
+          v-for="item in data.city"
           :key="item.value"
           :label="item.label"
           :value="item.value"
@@ -15,7 +15,7 @@
 
       <el-select v-model="value2" placeholder="請選擇">
         <el-option
-          v-for="item in options2"
+          v-for="item in data.area"
           :key="item.value"
           :label="item.label"
           :value="item.value"
@@ -28,7 +28,7 @@
     </div>
     <div class="error-info" v-if="hasErr">
       <img class="icon-error" src="../images/icon-error.svg" />
-      {{ errMsg }}
+      {{ data.errMsg }}
     </div>
   </div>
 </template>
@@ -38,59 +38,14 @@ import { defineComponent, ref } from "vue";
 export default defineComponent({
   name: "FBAdress",
   props: {
-    label: String,
-    errMsg: String,
+    data:Object
   },
   setup() {
     return {
-      options1: ref([
-        {
-          value: "Option1",
-          label: "Option1",
-        },
-        {
-          value: "Option2",
-          label: "Option2",
-        },
-        {
-          value: "Option3",
-          label: "Option3",
-        },
-        {
-          value: "Option4",
-          label: "Option4",
-        },
-        {
-          value: "Option5",
-          label: "Option5",
-        },
-      ]),
-
-      options2: ref([
-        {
-          value: "OptionA",
-          label: "OptionA",
-        },
-        {
-          value: "OptionB",
-          label: "OptionB",
-        },
-        {
-          value: "OptionC",
-          label: "OptionC",
-        },
-        {
-          value: "OptionD",
-          label: "OptionD",
-        },
-        {
-          value: "OptionE",
-          label: "OptionE",
-        },
-      ]),
-
-      value1: ref(""),value2: ref(""),
-      text1: ref(""),text2: ref(""),
+      value1: ref(""),
+      value2: ref(""),
+      text1: ref(""),
+      text2: ref(""),
       hasErr: false,
     };
   },

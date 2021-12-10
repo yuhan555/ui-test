@@ -15,6 +15,9 @@ const formItemList = {
   elOCR: defineAsyncComponent(() => import('@/widgets/FBOCR.vue')),
   elMail: defineAsyncComponent(() => import('@/widgets/FBMail.vue')),
   elCall: defineAsyncComponent(() => import('@/widgets/FBCall.vue')),
+  elAddress: defineAsyncComponent(() => import('@/widgets/FBAdress.vue')),
+  elCar: defineAsyncComponent(() => import('@/widgets/FBCar.vue')),
+  elButton: defineAsyncComponent(() => import('@/widgets/FBButtons.vue')),
   
 
 }
@@ -37,6 +40,9 @@ const formItemListKey = {
   12: formItemList.elOCR, 
   13: formItemList.elMail, 
   14: formItemList.elCall, 
+  15: formItemList.elAddress, 
+  16: formItemList.elCar, 
+  17: formItemList.elButton, 
 
 
 }
@@ -234,6 +240,67 @@ var fieldList = [
     errMsg:"",
     col:24,
     fieldType:14,
+  },
+  { label:"地址",
+    id:"uu",
+    errMsg:"",
+    col:24,
+    fieldType:15,
+    city:[
+      {
+        value: "1",
+        label: "台北市",
+      },
+      {
+        value: "2",
+        label: "台中市",
+      },
+      {
+        value: "3",
+        label: "高雄市",
+      },
+    ],
+    area:[
+      {
+        value: "1",
+        label: "中山區",
+      },
+      {
+        value: "2",
+        label: "大同區",
+      },
+      {
+        value: "3",
+        label: "南港區",
+      },
+    ]
+  },
+  { 
+    label:"車牌辨識",
+    id:"uu",
+    errMsg:"",
+    col:24,
+    fieldType:16,
+  },
+  { 
+    label:"一顆按鈕",
+    id:"vv",
+    errMsg:"",
+    col:null,
+    fieldType:17,
+    buttonType:"base",
+    buttonFill:true,
+    buttonRound:false,
+  },
+  { 
+    label:"兩顆按鈕",
+    id:"ww",
+    errMsg:"",
+    col:null,
+    fieldType:17,
+    buttonType:"function",
+    buttonFill:false,
+    buttonRound:true,
   },
   
   
