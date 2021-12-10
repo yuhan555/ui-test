@@ -70,17 +70,7 @@ export default defineComponent({
   //下拉icon 位置
   .el-input__suffix {
     right: 10px;
-    top: 8px;
-  }
-
-  .el-icon-arrow-up:before {
-    font-size: 1rem;
-    color: #01b6ad;
-    font-weight: 600;
-  }
-  // disabled 下拉icon
-  .el-select .el-input.is-disabled .el-icon-arrow-up:before {
-    color: #cccccc;
+    top: 5px;
   }
 
   //關閉時鐘icon
@@ -88,4 +78,5 @@ export default defineComponent({
     display: none;
   }
 }
+
 </style>

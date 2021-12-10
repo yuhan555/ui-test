@@ -129,8 +129,9 @@ export default defineComponent({
     color: #ffae2d;
 
     &:hover {
-      color: #f7bf66;
-      border-color: #f7bf66;
+      color: #ffffff;
+      background-color: #f7bf66;
+      border-color: #ffae2d;
     }
   }
 
@@ -142,7 +143,7 @@ export default defineComponent({
     &:hover,
     &:active {
       color: #ffffff;
-      background-color: #188ec9;
+      background-color: #1f8dc4;
       border-color: #007dbc;
     }
   }
@@ -151,8 +152,9 @@ export default defineComponent({
     color: #007dbc;
 
     &:hover {
-      color: #188ec9;
-      border-color: #188ec9;
+      color: #ffffff;
+      background-color: #1f8dc4;
+      border-color: #007dbc;
     }
   }
 
@@ -173,8 +175,9 @@ export default defineComponent({
     color: #01b6ad;
 
     &:hover {
-      color: #5cd3cb;
-      border-color: #5cd3cb;
+      color: #ffffff;
+      background-color: #5acec6;
+      border-color: #01b6ad;
     }
   }
 }

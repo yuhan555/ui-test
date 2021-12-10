@@ -75,7 +75,7 @@ export default defineComponent({
   //下拉icon 位置
   .el-input__suffix {
     right: 10px;
-    top: 8px;
+    top: 5px;
   }
 
   .el-input__suffix-inner {

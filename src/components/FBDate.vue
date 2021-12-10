@@ -66,7 +66,6 @@ export default defineComponent({
 .FBDate {
   text-align: left;
   margin-top: 24px;
-  
 }
 
 </style>
