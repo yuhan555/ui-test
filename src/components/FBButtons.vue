@@ -42,7 +42,6 @@ export default defineComponent({
 
 
 <style lang="scss">
-
 @mixin mobile {
   @media (max-width: 390px) {
     @content;
@@ -129,8 +128,13 @@ export default defineComponent({
     color: #ffae2d;
 
     &:hover {
-      color: #ffffff;
-      background-color: #f7bf66;
+      background-color: #f2f3f5;
+      border-color: #ffae2d;
+    }
+
+    &:focus,
+    &:active {
+      background-color: #e9eaec;
       border-color: #ffae2d;
     }
   }
@@ -152,8 +156,13 @@ export default defineComponent({
     color: #007dbc;
 
     &:hover {
-      color: #ffffff;
-      background-color: #1f8dc4;
+      background-color: #f2f3f5;
+      border-color: #007dbc;
+    }
+
+    &:focus,
+    &:active {
+      background-color: #e9eaec;
       border-color: #007dbc;
     }
   }
@@ -175,8 +184,13 @@ export default defineComponent({
     color: #01b6ad;
 
     &:hover {
-      color: #ffffff;
-      background-color: #5acec6;
+      background-color: #f2f3f5;
+      border-color: #01b6ad;
+    }
+
+    &:focus,
+    &:active {
+      background-color: #e9eaec;
       border-color: #01b6ad;
     }
   }
